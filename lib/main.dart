@@ -1,30 +1,29 @@
 
 import 'package:flutter/material.dart';
-import 'order_summary.dart';
+import 'menu.dart';
+import 'vegetable_pizza.dart';
+import 'cheese_pizza.dart';
+import 'fries.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Lab04());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Lab04 extends StatelessWidget {
+  const Lab04({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pizza Store',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.red,
-        ),
-        useMaterial3: true,
-      ),
-      home: const OrderSummaryScreen(
-        itemName: 'Margherita Pizza',
-        quantity: 2,
-        unitPrice: 12.50,
-      ),
+      home: const MenuScreen(),
+      routes: {
+        'menu': (context) => const MenuScreen(),
+        'vegetable': (context) => const VegetablePizzaScreen(),
+        'cheese': (context) => const CheesePizzaScreen(),
+        'fries': (context) => const FriesScreen(),
+      },
     );
   }
 }
